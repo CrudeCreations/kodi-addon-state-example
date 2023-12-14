@@ -4,6 +4,7 @@
 # License: MIT https://goo.gl/5bMj3H
 
 import sys
+import xbmc
 import xbmcplugin
 import xbmcgui
 import lib.menu_items as MENU
@@ -22,10 +23,11 @@ xbmcplugin.setContent(ADDON_HANDLE, "movies")
 
 route = ARGS.get("route", [None])[0]
 action = ARGS.get("action", [Actions.Navigate])[0]
+query = ARGS.get("query", [None])[0]
 
 def add_menu_item(menu_item, is_folder, is_playable=False):
     list_item = xbmcgui.ListItem(label=menu_item["label"])
-    
+
     if "thumb" in menu_item:
         list_item.setArt({"thumb": menu_item["thumb"]})
     if is_playable:
@@ -39,13 +41,17 @@ if action == Actions.Navigate:
         for menu_item in MENU.MENU_ITEMS_TOP:
             add_menu_item(menu_item, is_folder=True)
     else:
-        add_menu_item({"label": "Search...", "action": Actions.Search, "route": route}, is_folder=True)
         menu_map = {
             "/animals": MENU.MENU_ITEMS_ANIMALS,
             "/cars": MENU.MENU_ITEMS_CARS,
             "/countries": MENU.MENU_ITEMS_COUNTRIES,
         }
-        for menu_item in menu_map.get(route, []):
+        menu_items = menu_map.get(route, [])
+        filtered_menu_items = [menu_item for menu_item in menu_items if query.lower() in menu_item["label"].lower()] if query else menu_items
+        if len(filtered_menu_items) > 1:
+            add_menu_item({"label": "Search...", "action": Actions.Search, "route": route}, is_folder=True)
+
+        for menu_item in filtered_menu_items:
             add_menu_item(menu_item, is_folder=False, is_playable=True)
 
 elif action == Actions.Play:
@@ -53,5 +59,13 @@ elif action == Actions.Play:
     if video is not None:
         list_item = xbmcgui.ListItem(path=video)
         xbmcplugin.setResolvedUrl(ADDON_HANDLE, True, list_item)
+
+elif action == Actions.Search:
+    keyboard = xbmc.Keyboard('', 'Search', False)
+    keyboard.doModal()
+    if keyboard.isConfirmed():
+        query = keyboard.getText()
+        url = format_url(action=Actions.Navigate, route=route, query=query)
+        xbmc.executebuiltin('Container.Update(%s, replace)' % url)
 
 xbmcplugin.endOfDirectory(ADDON_HANDLE)
