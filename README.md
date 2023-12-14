@@ -1,3 +1,6 @@
+<a href='https://ko-fi.com/C0C1RST97' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi2.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+
+
 # Test Kodi Plugin for Managing Addon State
 
 This is a simple repo for my testing of Kodi plugin state. This plugin is designed to investigate different methods of managing addon state while performing various actions such as searching within Kodi.
