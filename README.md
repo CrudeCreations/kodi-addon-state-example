@@ -1,10 +1,6 @@
 # Test Kodi Plugin for Managing Addon State
 
-Welcome to the repository for a simple test Kodi plugin. This plugin is designed to explore different methods of managing addon state while performing various actions such as searching within Kodi.
-
-## Repository Structure
-
-In the future, this repository will contain multiple branches, each representing explorations and approaches to managing application state. You will be able to explore these branches to understand the different strategies and their implementations.
+This is a simple repo for my testing of Kodi plugin state. This plugin is designed to investigate different methods of managing addon state while performing various actions such as searching within Kodi.
 
 ## Getting Started
 
