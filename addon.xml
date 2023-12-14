@@ -14,6 +14,10 @@
         <disclaimer lang="en">Addon State Testing</disclaimer>
         <assets>
             <icon>resources/images/icon-state-testing.png</icon>
+            <fanart>resources/images/icon-state-testing.png</fanart>
+			<screenshot>resources/images/icon-state-testing.png</screenshot>
+			<screenshot>resources/images/icon-state-testing.png</screenshot>
+			<screenshot>resources/images/icon-state-testing.png</screenshot>
         </assets>
     </extension>
 </addon>
