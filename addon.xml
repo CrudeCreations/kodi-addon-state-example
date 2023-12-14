@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="plugin.video.addonstatetest" version="1.0.0" name="Addon State Testing" provider-name="CrudeCreations">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="addon.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <reuselanguageinvoker>false</reuselanguageinvoker>
+        <platform>all</platform>
+        <summary lang="en">Addon State Testing</summary>
+        <description lang="en">Addon State Testing</description>
+        <disclaimer lang="en">Addon State Testing</disclaimer>
+        <assets>
+            <icon>resources/images/icon-state-testing.png</icon>
+        </assets>
+    </extension>
+</addon>
