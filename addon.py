@@ -37,6 +37,7 @@ if action == Actions.Navigate:
         for menu_item in MENU.MENU_ITEMS_TOP:
             add_menu_item(menu_item, is_folder=True)
     else:
+        add_menu_item({"label": "Search...", "action": Actions.Search, "route": route}, is_folder=True)
         menu_map = {
             "/animals": MENU.MENU_ITEMS_ANIMALS,
             "/cars": MENU.MENU_ITEMS_CARS,
