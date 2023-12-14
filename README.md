@@ -1,2 +1,4 @@
 # kodi-addon-state-example
-A test repository for managing state in a kodi plugin
+
+This is a really simple POC for testing state management in a Kodi plugin.
+
