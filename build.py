@@ -20,6 +20,6 @@ for item in items_to_copy:
 with zipfile.ZipFile(os.path.join(src_dir, 'dist', 'plugin.video.addonstatetest.zip'), 'w', zipfile.ZIP_DEFLATED) as zipf:
     for root, dirs, files in os.walk(dst_dir):
         for file in files:
-            zipf.write(os.path.join(root, file), os.path.relpath(os.path.join(root, file), dst_dir))
+            zipf.write(os.path.join(root, file), arcname=os.path.join('plugin.video.addonstatetest', os.path.relpath(os.path.join(root, file), dst_dir)))
 
 shutil.rmtree(dst_dir)
