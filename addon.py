@@ -25,7 +25,9 @@ action = ARGS.get("action", [Actions.Navigate])[0]
 
 def add_menu_item(menu_item, is_folder, is_playable=False):
     list_item = xbmcgui.ListItem(label=menu_item["label"])
-    list_item.setArt({"thumb": menu_item["thumb"]})
+    
+    if "thumb" in menu_item:
+        list_item.setArt({"thumb": menu_item["thumb"]})
     if is_playable:
         list_item.setProperty("IsPlayable", "true")
 
