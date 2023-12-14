@@ -1,4 +1,4 @@
-from resources.lib.globals import Actions
+from lib.globals import Actions
 
 MENU_ITEMS_TOP = [
     {"label": "Animals", "action": Actions.Navigate, "thumb": "https://cdn.pixabay.com/photo/2016/01/30/17/58/zebra-1170177_960_720.jpg", "route": "/animals"},

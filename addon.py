@@ -6,8 +6,8 @@
 import sys
 import xbmcplugin
 import xbmcgui
-import resources.lib.menu_items as MENU
-from resources.lib.globals import Actions
+import lib.menu_items as MENU
+from lib.globals import Actions
 from urllib.parse import parse_qs, urlencode
 
 BASE_URL = sys.argv[0]
