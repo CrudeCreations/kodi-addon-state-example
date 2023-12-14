@@ -14,6 +14,11 @@ Follow these steps to get the addon up and running:
 2. Copy the generated zip file to a location accessible by your Kodi installation.
 3. In Kodi, go to Settings, then Addons. Choose "Install from zip file" and navigate to the location of the copied zip file.
 
+### Using the Deploy Script
+The deploy.py script is a tool for Windows developers to streamline the testing process. It copies the necessary files from your project to the Kodi addons directory (%AppData%\Kodi\addons\plugin.video.addonstatetest).
+
+Please ensure that the addon has been installed at least once using the build script before using the deploy script. This script is intended for development and testing, not for distributing the plugin to end users.
+
 ## Purpose of This Repository
 The main purpose of this repository is to standardize the approach to managing state in Kodi plugins. Kodi plugins have unique requirements due to the nature of their lifecycle and the way they handle user interactions.
 
