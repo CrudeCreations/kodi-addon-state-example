@@ -29,13 +29,9 @@ All parameters for the program must be encoded into a URL and parsed as the prog
 
 This repository aims to explore and standardize the best practices for managing such state transitions in Kodi plugins. By doing so, it will provide a solid foundation for building robust and reliable Kodi plugins.
 
-#### Current Issue
-With the following line in `addon.py`:
-https://github.com/CrudeCreations/kodi-addon-state-example/blob/33163784c3ef9b7ab69b73fcba7df1dcf40ae6f8/addon.py#L69
+With the recent update thanks to [doko-desuka](https://forum.kodi.tv/member.php?action=profile&uid=415398) this addon now handles search state in a nice way and retains history.
 
-This replaces the history so that the search dialog is not triggered every time but unfortunately this means that the history of searches is lost.
-
-Ideally I would to retain search history and not continually trigger the search dialog each time I go backwards.
+This is down to using `xbmcplugin.endOfDirectory(ADDON_HANDLE, updateListing=True)` which updates the listing when using a search query.
 
 ## Contributing
 
