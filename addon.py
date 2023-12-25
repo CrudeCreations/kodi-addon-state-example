@@ -8,7 +8,7 @@ import xbmc
 import xbmcplugin
 import xbmcgui
 import lib.menu_items as MENU
-from lib.globals import Actions
+from lib.actions import Actions
 from urllib.parse import parse_qs, urlencode
 
 BASE_URL = sys.argv[0]
@@ -66,6 +66,6 @@ elif action == Actions.Search:
     if keyboard.isConfirmed():
         query = keyboard.getText()
         url = format_url(action=Actions.Navigate, route=route, query=query)
-        xbmc.executebuiltin('Container.Update(%s, replace)' % url)
+        xbmc.executebuiltin('Container.Update(%s)' % url)
 
 xbmcplugin.endOfDirectory(ADDON_HANDLE)
