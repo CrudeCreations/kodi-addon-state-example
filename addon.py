@@ -54,6 +54,9 @@ if action == Actions.Navigate:
         for menu_item in filtered_menu_items:
             add_menu_item(menu_item, is_folder=False, is_playable=True)
 
+    
+    xbmcplugin.endOfDirectory(ADDON_HANDLE, updateListing=query is not None)
+
 elif action == Actions.Play:
     video = ARGS.get("video", [None])[0]
     if video is not None:
@@ -63,9 +66,8 @@ elif action == Actions.Play:
 elif action == Actions.Search:
     keyboard = xbmc.Keyboard('', 'Search', False)
     keyboard.doModal()
-    if keyboard.isConfirmed():
-        query = keyboard.getText()
+    query = keyboard.getText().strip() if keyboard.isConfirmed() else None
+    if query:
         url = format_url(action=Actions.Navigate, route=route, query=query)
+        xbmcplugin.endOfDirectory(ADDON_HANDLE)
         xbmc.executebuiltin('Container.Update(%s)' % url)
-
-xbmcplugin.endOfDirectory(ADDON_HANDLE)
