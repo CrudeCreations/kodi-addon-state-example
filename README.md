@@ -31,7 +31,8 @@ This repository aims to explore and standardize the best practices for managing 
 
 With the recent update thanks to [doko-desuka](https://forum.kodi.tv/member.php?action=profile&uid=415398) this addon now handles search state in a nice way and retains history.
 
-This is down to using `xbmcplugin.endOfDirectory(ADDON_HANDLE, updateListing=True)` which updates the listing when using a search query.
+This is down to using `xbmc.executebuiltin('Container.Update(%s)' % url)` which updates the listing when using a search query.
+As we discovered you must assure menu items have isFolder=False so that Kodi considers it an action. That prevent re-triggering things like keyboard input etc.
 
 ## Contributing
 
