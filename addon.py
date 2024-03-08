@@ -49,13 +49,13 @@ if action == Actions.Navigate:
         menu_items = menu_map.get(route, [])
         filtered_menu_items = [menu_item for menu_item in menu_items if query.lower() in menu_item["label"].lower()] if query else menu_items
         if len(filtered_menu_items) > 1:
-            add_menu_item({"label": "Search...", "action": Actions.Search, "route": route}, is_folder=True)
+            add_menu_item({"label": "Search...", "action": Actions.Search, "route": route}, is_folder=False)
 
         for menu_item in filtered_menu_items:
             add_menu_item(menu_item, is_folder=False, is_playable=True)
 
     
-    xbmcplugin.endOfDirectory(ADDON_HANDLE, updateListing=query is not None)
+    xbmcplugin.endOfDirectory(ADDON_HANDLE)
 
 elif action == Actions.Play:
     video = ARGS.get("video", [None])[0]
